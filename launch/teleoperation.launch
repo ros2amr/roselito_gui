@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <launch>
+  <arg name="use_sim_time" default="false"/>
+
   <arg name="mode" default="localization"/>
   <include file="$(find-pkg-share ros_commons)/launch/rviz.launch">
     <arg name="settings" value="$(find-pkg-share roselito_gui)/config/$(var mode).rviz"/>
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
   </include>
+
   <include file="$(find-pkg-share ros_commons)/launch/rqt.launch">
     <arg name="settings" value="$(find-pkg-share roselito_gui)/config/steering.rqt"/>
   </include>
